@@ -12,7 +12,6 @@ class App extends Component {
     return (
       <Router>
         <div className="Header">
-          <p>app</p>
           <Header />
           <Route exact path= "/" component={Project} />
           <Route exact path ="/admin" component={Admin} />
