@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
 
 class Admin extends Component {
@@ -12,4 +13,4 @@ class Admin extends Component {
     }
 }
 
-export default Admin;
+export default connect()(Admin);

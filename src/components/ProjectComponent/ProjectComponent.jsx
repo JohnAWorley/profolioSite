@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
 
 
 class Project extends Component {
@@ -12,4 +13,4 @@ class Project extends Component {
     }
 }
 
-export default Project;
+export default connect()(Project);
