@@ -17,7 +17,7 @@ class App extends Component {
           <Route exact path= "/" component={Project} />
           <Route exact path ="/admin" component={Admin} />
         </div>
-      </Router>
+      </Router> // for SPA routing 
     );
   }
 }
