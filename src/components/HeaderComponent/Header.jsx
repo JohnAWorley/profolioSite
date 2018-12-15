@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
+
 
 
 class Header extends Component {
     // Renders the entire app on the DOM
+    let
     render() {
         return (
 

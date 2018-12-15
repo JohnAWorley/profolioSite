@@ -8,6 +8,8 @@ class Admin extends Component {
         this.props.history.push('/') // back to our main page
     }
 
+    
+
     // Renders the entire app on the DOM
     render() {
         return (
