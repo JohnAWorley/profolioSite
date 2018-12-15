@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import Header from '../HeaderComponent/Header';
@@ -7,6 +7,7 @@ import Project from '../ProjectComponent/ProjectComponent';
 import Admin from '../AdminComponent/AdminComponent';
 
 class App extends Component {
+  
   // Renders the entire app on the DOM
   render() {
     return (

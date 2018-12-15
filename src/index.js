@@ -17,9 +17,22 @@ function* rootSaga() {
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
+let trial = [
+    {
+        id: 1,
+        name: 'john',
+        description: 'trial data',
+        thumbnail: '/images/goat_small.jpg',
+        website: 'www.google.com',
+        github: 'www.github.com',
+        date_completed: '05/05/1994',
+        tag_id: 'react'
 
+    }
+
+]
 // Used to store projects returned from the server
-const projects = (state = [], action) => {
+const projects = (state = trial, action) => {
     switch (action.type) {
         case 'SET_PROJECTS':
             return action.payload;
@@ -51,6 +64,6 @@ const storeInstance = createStore(
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);
 
-ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, 
+ReactDOM.render(<Provider store={storeInstance}><App /></Provider>,
     document.getElementById('root'));
 registerServiceWorker();
