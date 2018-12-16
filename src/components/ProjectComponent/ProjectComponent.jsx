@@ -11,23 +11,65 @@ const mapStoreToProps = reduxStore => { // making our redux store accessible
 class Project extends Component {
     // Renders the entire app on the DOM
     componentDidMount() {
+        // this.props.dispatch({ type: 'FETCH_PROJECTS' })
         console.log(this.props.reduxStore.projects); // checking to see what our project are before we map them to dom 
+        
 
     }
 
     render() {
-        let singleProject = this.props.reduxStore.projects.map((project, i) => {
-            return <div key={project.id}>
-                <p>{project.name}</p>
-                <p>{project.description}</p>
-                <img src={project.thumbnail}></img>
-                <br></br>
-                <a target={project.website} href="_blank">website</a>
-                <br></br>
-                <a href={project.github} target="_blank">github</a>
-                <p>{project.date_completed}</p>
-                <p>{project.tag_id}</p>
-            </div>
+        let singleProject = this.props.reduxStore.projects.map((project) => {
+            let name;
+                if (project.name){
+                    name =  <div>Project Name: {project.name}</div>
+                } else {
+                    name = <div></div>
+            }
+            let description;
+                if (project.description) {
+                    description = <div>Project Description: {project.description}</div>
+                } else {
+                    description = <div></div>
+                }
+            let thumbnail;
+                if (project.thumbnail) {
+                    thumbnail = <img src={project.thumbnail} alt=""></img>
+                } else {
+                    thumbnail = <div></div>
+                }
+            let website;
+                if (project.website) {
+                    website = <div><a href={project.website} target="_blank">Website</a></div>
+                } else {
+                    website = <div></div>
+                }
+            let github;
+                if (project.github) {
+                    github = <div><a href={project.github} target="_blank">Github</a></div>
+                } else {
+                    github = <div></div>
+                }
+            let date;
+                if (project.date_completed) {
+                    date = <div>Date:{project.date_completed}</div>
+                } else {
+                    date = <div></div>
+                }
+            let tag;
+                if (project.tag_id) {
+                    tag = <div>Technology: {project.tag_id}</div>
+                } else {
+                    tag = <div></div>
+                }
+                return <div key={project.id}>
+                    {name}
+                    {description}
+                    {thumbnail}
+                    {website}
+                    {github}
+                    {date}
+                    {tag}
+                </div>
         })
         return (
             <div className="Project">

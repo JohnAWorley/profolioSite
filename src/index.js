@@ -9,10 +9,18 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 // Import saga middleware
 import createSagaMiddleware from 'redux-saga';
+import axios from 'axios';
+import {put as dispatch, call, takeEvery} from 'redux-saga/effects';
+
+
+// function* getProjects() {
+//    const allProjects = yield call(axios.get, `/projects`)
+//     yield dispatch({ type:'SET_PROJECTS', payload: allProjects})
+// }
 
 // Create the rootSaga generator function
 function* rootSaga() {
-
+    // yield takeEvery('FETCH_PROJECTS', getProjects)
 }
 
 // Create sagaMiddleware
@@ -23,8 +31,8 @@ let trial = [
         name: 'john',
         description: 'trial data',
         thumbnail: '/images/goat_small.jpg',
-        website: 'www.google.com',
-        github: 'www.github.com',
+        website: 'https://www.google.com',
+        github: 'https://www.github.com',
         date_completed: '05/05/1994',
         tag_id: 'react'
 
