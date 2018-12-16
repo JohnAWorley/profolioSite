@@ -1,22 +1,22 @@
-// const express = require('express');
-// const app = express();
-// const bodyParser = require('body-parser');
-// const port = process.env.PORT || 5000;
-// const project = require('./routes/projects.router.js');
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const port = process.env.PORT || 5000;
+const project = require('./routes/projects.router.js');
 
 
-// //routes included
+//routes included
 
 
-// /** ---------- MIDDLEWARE ---------- **/
-// app.use(bodyParser.json()); // needed for angular requests
-// app.use(express.static('build'));
+/** ---------- MIDDLEWARE ---------- **/
+app.use(bodyParser.json()); // needed for angular requests
+app.use(express.static('build'));
 
-// /** ---------- ROUTES ---------- **/
+/** ---------- ROUTES ---------- **/
 
-// app.use('/projects', project);
+app.use('/projects', project);
 
-// /** ---------- START SERVER ---------- **/
-// app.listen(port, function () {
-//     console.log('Listening on port: ', port);
-// });
+/** ---------- START SERVER ---------- **/
+app.listen(port, function () {
+    console.log('Listening on port: ', port);
+});
