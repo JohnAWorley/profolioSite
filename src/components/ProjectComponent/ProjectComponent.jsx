@@ -8,16 +8,17 @@ const mapStoreToProps = reduxStore => { // making our redux store accessible
 }
 
 
+
 class Project extends Component {
 
-    handleClick = () =>  {
-        this.props.dispatch({ type: 'FETCH_PROJECTS' })
-    }
-    // Renders the entire app on the DOM
+    // handleClick = () =>  {
+         
+    // } for data check
+    // Renders the projects on the DOM
     componentDidMount() {
         
         console.log(this.props.reduxStore.projects); // checking to see what our project are before we map them to dom 
-        
+        this.props.dispatch({ type: 'FETCH_PROJECTS' })
 
     }
 
@@ -79,7 +80,7 @@ class Project extends Component {
             <div className="Project">
                 <p>projects page</p>
                 {singleProject}
-                <button onClick={this.handleClick}></button>
+                {/* <button onClick={this.handleClick}></button> for data check */}
                
             </div>
         );

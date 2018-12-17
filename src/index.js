@@ -17,36 +17,50 @@ function* getProjects() {
     try {
    const allProjects = yield call(axios.get, '/projects')
     yield dispatch({ type:'SET_PROJECTS', payload: allProjects})
-    } catch {
+    } catch (error){
+        console.log('error getting projects saga',  error);
         
-    }
+    } 
     
+} // to server get call back with projects to local reducer
+
+function* addProject(action) {
+    try{
+        console.log('hitting add project');
+        console.log(action.payload);
+        yield call(axios.post, '/add/project', action.payload );
+        yield dispatch({ type: 'FETCH_PROJECTS'})
+        
+    } catch(error) {
+
+    }
 }
 
 // Create the rootSaga generator function
 function* rootSaga() {
-    yield takeEvery('FETCH_PROJECTS', getProjects)
+    yield takeEvery('FETCH_PROJECTS', getProjects) // to get projects
+    yield takeEvery('ADD_PROJECT', addProject )
 }
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
-let trial = [
-    {
-        id: 1,
-        name: 'john',
-        description: 'trial data',
-        thumbnail: '/images/goat_small.jpg',
-        website: 'https://www.google.com',
-        github: 'https://www.github.com',
-        date_completed: '05/05/1994',
-        tag_id: 'react'
+// let trial = [ // object for testing reducers 
+//     {
+//         id: 1,
+//         name: 'john',
+//         description: 'trial data',
+//         thumbnail: '/images/goat_small.jpg',
+//         website: 'https://www.google.com',
+//         github: 'https://www.github.com',
+//         date_completed: '05/05/1994',
+//         tag_id: 'react'
 
-    }, 
+//     }, 
     
 
-]
+// ]
 // Used to store projects returned from the server
-const projects = (state = trial, action) => {
+const projects = (state = [], action) => {
     switch (action.type) {
         case 'SET_PROJECTS':
             return  action.payload.data; // need .data because we had nested data, duh.

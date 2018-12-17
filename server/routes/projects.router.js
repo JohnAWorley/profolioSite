@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const axios = require('axios');
 const pool = require('../modules/pool.js');
 
 
@@ -13,21 +12,21 @@ pool.on('error', (error) => {
 });
 
 
-let rez = {
-    id: 2,
-    name: 'the return data',
-    description: 'trial data',
-    thumbnail: '/images/goat_small.jpg',
-    website: 'https://www.google.com',
-    github: 'https://www.github.com',
-    date_completed: '05/05/1994',
-    tag_id: 'react'
+// let rez = {
+//     id: 2,
+//     name: 'the return data',
+//     description: 'trial data',
+//     thumbnail: '/images/goat_small.jpg',
+//     website: 'https://www.google.com',
+//     github: 'https://www.github.com',
+//     date_completed: '05/05/1994',
+//     tag_id: 'react'
 
-}
+// } // trial data
 
 router.get('/', (req, res) => {
     console.log('in GET route');
-    let queryString = `SELECT * FROM "projects" ORDER BY "name" ASC;`;
+    let queryString = `SELECT * FROM "projects" ORDER BY "id" ASC;`;
     pool.query(queryString).then((result) => {
         res.send(result.rows);
     }).catch((err) => {
