@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Header from '../HeaderComponent/Header';
+import './projectStyle.css'
 
 const mapStoreToProps = reduxStore => { // making our redux store accessible 
     return {
@@ -58,7 +60,7 @@ class Project extends Component {
                 }
             let date;
                 if (project.date_completed) {
-                    date = <div>Date:{project.date_completed}</div>
+                    date = <div>Date Completed:{project.date_completed}</div>
                 } else {
                     date = <div></div>
                 }
@@ -68,19 +70,20 @@ class Project extends Component {
                 } else {
                     tech = <div></div>
                 }
-                return <div key={project.id}>
+                return <div className="master" key={project.id}>
                     {name}
                     {description}
                     {thumbnail}
-                    {website}
-                    {github}
                     {date}
                     {tech}
+                    {website}
+                    {github}
+                    <br></br>
                 </div>
         })
         return (
-            <div className="Project">
-                <p>projects page</p>
+            <div className="project">
+                <Header />
                 {singleProject}
                 {/* <button onClick={this.handleClick}></button> for data check */}
                

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import './headerStyle.css'
 
 
 class Header extends Component {
@@ -10,7 +10,8 @@ class Header extends Component {
         return (
 
             <header>
-                <p>Header</p>
+                <p className="elegantshadow">John Worley</p>
+                <p className="elegantshadow">Projects</p>
             </header>
 
         );
