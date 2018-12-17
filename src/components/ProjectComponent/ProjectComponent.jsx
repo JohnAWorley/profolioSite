@@ -24,6 +24,8 @@ class Project extends Component {
 
     render() {
         let singleProject = this.props.reduxStore.projects.map((project) => {
+            console.log('project help',  project.tag  );
+            
             let name;
                 if (project.name){
                     name =  <div>Project Name: {project.name}</div>
@@ -60,11 +62,11 @@ class Project extends Component {
                 } else {
                     date = <div></div>
                 }
-            let tag;
-                if (project.tag_id) {
-                    tag = <div>Technology: {project.tag_id}</div>
+            let tech;
+                if (project.tag) {
+                    tech = <div>Technology: {project.tag}</div>
                 } else {
-                    tag = <div></div>
+                    tech = <div></div>
                 }
                 return <div key={project.id}>
                     {name}
@@ -73,7 +75,7 @@ class Project extends Component {
                     {website}
                     {github}
                     {date}
-                    {tag}
+                    {tech}
                 </div>
         })
         return (

@@ -26,7 +26,8 @@ pool.on('error', (error) => {
 
 router.get('/', (req, res) => {
     console.log('in GET route');
-    let queryString = `SELECT * FROM "projects" ORDER BY "id" ASC;`;
+    let queryString = `SELECT projects.name, projects.description, projects.github, projects.thumbnail, projects.website, projects.date_completed, tags.name as tag
+    FROM projects JOIN tags ON projects.tag_id = tags.id ORDER BY projects.date_completed DESC; `;
     pool.query(queryString).then((result) => {
         res.send(result.rows);
     }).catch((err) => {
