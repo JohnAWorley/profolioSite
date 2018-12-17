@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom'
+import './admin.css'
 
 
 class Admin extends Component {
@@ -21,7 +22,7 @@ class Admin extends Component {
     }
 
     handleChange = (event) => {
-        console.log('event happended')
+        console.log('event was here')
         this.setState({
             
                 [event.target.name]: event.target.value
@@ -40,15 +41,16 @@ class Admin extends Component {
     render() {
         return (
             <div className="Admin">
-                <p>admin page</p>
-                <button onClick={this.changePage}>Back to Project View</button> 
-                <input type='text' placeholder="Name" name='name' value={this.state.name} onChange={this.handleChange} ></input>
-                <input type='text' placeholder="Description" name= 'description' value={this.state.description} onChange={this.handleChange} ></input>
-                <input type='text' placeholder="Image path" name= 'thumbnail' value={this.state.thumbnail} onChange={this.handleChange} ></input>
-                <input type='text' placeholder="Website Link" name= 'website' value={this.state.website} onChange={this.handleChange} ></input>
-                <input type='text' placeholder="Github Link" name= 'github' value={this.state.github} onChange={this.handleChange} ></input>
-                <input type='date' name= 'date_completed' value={this.state.date_completed} onChange={this.handleChange} ></input>
-                <select name='tag_id' onChange={this.handleChange}>
+                <p className="elegantshadow">admin page</p>
+                <button className="input" onClick={this.changePage}>Back to Project View</button> 
+                <br></br>
+                <input className="input" type='text' placeholder="Name" name='name' value={this.state.name} onChange={this.handleChange} ></input>
+                <input className="input" type='text' placeholder="Description" name= 'description' value={this.state.description} onChange={this.handleChange} ></input>
+                <input className="input" type='text' placeholder="Image path" name= 'thumbnail' value={this.state.thumbnail} onChange={this.handleChange} ></input>
+                <input className="input" type='text' placeholder="Website Link" name= 'website' value={this.state.website} onChange={this.handleChange} ></input>
+                <input className="input" type='text' placeholder="Github Link" name= 'github' value={this.state.github} onChange={this.handleChange} ></input>
+                <input className="input" type='date' name= 'date_completed' value={this.state.date_completed} onChange={this.handleChange} ></input>
+                <select className="input" name='tag_id' onChange={this.handleChange}>
                     <option value={0}></option>
                     <option value={1}>React</option>
                     <option value={2}>jQuery</option>
@@ -57,7 +59,7 @@ class Admin extends Component {
                     <option value={5}>Redux</option>
                     <option value={6}>HTML</option>
                 </select>
-                <button onClick={this.dispatchState}>Submit Project</button>
+                <button className="input" onClick={this.dispatchState}>Submit Project</button>
                 
     
             </div>
