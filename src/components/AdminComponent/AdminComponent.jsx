@@ -32,7 +32,9 @@ class Admin extends Component {
 
     dispatchState = () => {
         console.log('dispatching state');
-        this.props.dispatch({ type: 'ADD_PROJECT', payload: this.state })
+        this.props.dispatch({ type: 'ADD_PROJECT', payload: this.state });
+        alert('submitted project');
+
         
     }  // dispatching our local state
     
